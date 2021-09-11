@@ -1,10 +1,10 @@
 import express from "express";
+import { env } from "process";
 
-const PORT = 3000
-const HOST = '0.0.0.0'
+const PORT = env.PORT || 3000
 
 const app = express()
 
-app.get('/', (req, res)=>res.send({hello:'beautiful world'}))
+app.get('/', (req, res) => res.send({ hello: 'beautiful world' }))
 
-app.listen(PORT, HOST)
+app.listen(PORT, ()=>console.info(`Server running on http://localhost:${PORT}`))
